@@ -13,22 +13,34 @@ stando attenti che il numero di partite vinte sia inferiore alle partite giocate
 3- modifica del nome e del cognome del giocatore
 4- cancellazione del giocatore*/
 
-//using (Context db = new Context())
+using (Context db = new Context())
+{
 
-    
-    int scores= new Random().Next(1, 10);
+    int scores = new Random().Next(1, 10);
     int totMatches = new Random().Next(1, 100);
     int wonMatches = new Random().Next(1, totMatches);
 
-    Player firstPlayer = new Player() { Name = "Simone", Surname = "Giannelli", Score = scores, NumberMatches = totMatches, NumberMatchesWon= wonMatches };
+    Player firstPlayer = new Player() { Name = "Simone", Surname = "Giannelli", Score = scores, NumberMatches = totMatches, NumberMatchesWon = wonMatches };
 
     firstPlayer.PrintPlayer();
+
+    db.Add(firstPlayer);
+    db.SaveChanges();
+    Console.WriteLine("Player added in Database!");
+
+
+    List<Player> players = db.Players
+    .OrderBy(player => player.Name).ToList<Player>();
+
     firstPlayer.Name = "Yuri";
     firstPlayer.Surname = "Romanò";
+    db.SaveChanges();
+
     firstPlayer.PrintPlayer();
 
+    Console.WriteLine("Player name and surname modified  in Database!");
 
+    db.Remove(firstPlayer);
+    db.SaveChanges();
 
-//db.Add(firstPlayer);
-//db.SaveChanges();
-//Console.WriteLine("Player added in Database!");
+}
