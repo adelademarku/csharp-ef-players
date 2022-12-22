@@ -10,6 +10,7 @@ namespace csharpEntityFrameworkPlayers
     public class Context : DbContext
     {
         public DbSet<Player> Players { get; set; }
+        public DbSet<Team> Teams { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

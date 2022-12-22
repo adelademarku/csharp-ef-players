@@ -13,7 +13,7 @@ stando attenti che il numero di partite vinte sia inferiore alle partite giocate
 3- modifica del nome e del cognome del giocatore
 4- cancellazione del giocatore*/
 
-using (Context db = new Context())
+/*using (Context db = new Context())
 {
 
     int scores = new Random().Next(1, 10);
@@ -43,4 +43,11 @@ using (Context db = new Context())
     db.Remove(firstPlayer);
     db.SaveChanges();
 
-}
+}*/
+
+
+//Creare tre giocatori, creare una squadra e aggiungere i tre giocatori alla squadra appena creata
+
+
+
+
