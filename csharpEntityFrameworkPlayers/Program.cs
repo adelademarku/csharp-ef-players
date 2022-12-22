@@ -48,6 +48,48 @@ stando attenti che il numero di partite vinte sia inferiore alle partite giocate
 
 //Creare tre giocatori, creare una squadra e aggiungere i tre giocatori alla squadra appena creata
 
+/*using (Context db = new Context())
+{
+
+    int scores = new Random().Next(1, 10);
+    int totMatches = new Random().Next(1, 100);
+    int wonMatches = new Random().Next(1, totMatches);
+
+    Player secondPlayer = new Player() { Name = "Alessandro", Surname = "Michieletto", Score = scores, NumberMatches = totMatches, NumberMatchesWon = wonMatches };
+
+    secondPlayer.PrintPlayer();
+
+    db.Add(secondPlayer);
+    db.SaveChanges();
+    Console.WriteLine("Player added in Database!");
+
+    int scoresnew = new Random().Next(1, 10);
+    int totMatchesnew = new Random().Next(1, 100);
+    int wonMatchesnew = new Random().Next(1, totMatches);
+
+    Player thirdPlayer = new Player() { Name = "Daniele", Surname = "Lavia", Score = scoresnew, NumberMatches = totMatchesnew, NumberMatchesWon = wonMatchesnew };
+
+    thirdPlayer.PrintPlayer();
+
+    db.Add(thirdPlayer);
+    db.SaveChanges();
+    Console.WriteLine("Player added in Database!");
+
+    List<Player> list = new List<Player>();
+
+    list.Add(secondPlayer);
+    list.Add(thirdPlayer);
+
+    Team TeamOne = new Team() { Name = "Gli azzurri", City = "Milano", Coach = "Ferdinando De Giorgi", Player= list  };
+
+    db.Add(TeamOne);
+    db.SaveChanges();
+    Console.WriteLine("Player added in Database!");
+
+}*/
+
+
+
 
 
 
