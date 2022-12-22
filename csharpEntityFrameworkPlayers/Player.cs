@@ -25,7 +25,7 @@ namespace csharpEntityFrameworkPlayers
         [Column("number_of_matches_won")] 
         public int NumberMatchesWon { get; set; }
 
-        public int TeamId { get; set; }
+       
         public Team Team { get; set; }
 
 

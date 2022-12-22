@@ -11,8 +11,8 @@ using csharpEntityFrameworkPlayers;
 namespace csharpEntityFrameworkPlayers.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221222143307_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221222164832_Iniziodinuovo")]
+    partial class Iniziodinuovo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,9 +51,59 @@ namespace csharpEntityFrameworkPlayers.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
                     b.HasKey("PlayerId");
 
+                    b.HasIndex("TeamId");
+
                     b.ToTable("Players");
+                });
+
+            modelBuilder.Entity("csharpEntityFrameworkPlayers.Team", b =>
+                {
+                    b.Property<int>("TeamId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Coach")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TeamId");
+
+                    b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("csharpEntityFrameworkPlayers.Player", b =>
+                {
+                    b.HasOne("csharpEntityFrameworkPlayers.Team", "Team")
+                        .WithMany("Player")
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("csharpEntityFrameworkPlayers.Team", b =>
+                {
+                    b.Navigation("Player");
                 });
 #pragma warning restore 612, 618
         }

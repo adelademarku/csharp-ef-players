@@ -15,7 +15,7 @@ namespace csharpEntityFrameworkPlayers
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Database=PlayersDb;Integrated Security=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Database=SportDb;Integrated Security=True; TrustServerCertificate=True");
         }
 
 
